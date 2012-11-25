@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  def welcome
+    render 'welcome'
+  end
+
   # GET /games
   # GET /games.json
   def index
