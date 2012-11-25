@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Earned points:</b>
+  <%= @game.earned_points %>
+</p>
+
+<p>
+  <b>Correct answers count:</b>
+  <%= @game.correct_answers_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
