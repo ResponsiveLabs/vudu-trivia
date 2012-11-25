@@ -16,4 +16,5 @@
 
 # Local configurations
 .env
+/config/database.yml
 
