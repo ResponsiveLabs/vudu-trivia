@@ -17,4 +17,5 @@
 # Local configurations
 .env
 /config/database.yml
+*.DS_Store
 
