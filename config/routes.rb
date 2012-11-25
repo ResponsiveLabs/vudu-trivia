@@ -1,4 +1,6 @@
 VuduTriviaStaging::Application.routes.draw do
+  resources :questions
+
   resources :games
 
   # The priority is based upon order of creation:

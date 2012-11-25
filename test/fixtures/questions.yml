@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  explanation: MyText
+  answer_url: MyString
+  points_to_earn: 1
+  timer_in_seconds: 1
+  published: false
+  started_at: 2012-11-25 14:13:26
+
+two:
+  title: MyString
+  explanation: MyText
+  answer_url: MyString
+  points_to_earn: 1
+  timer_in_seconds: 1
+  published: false
+  started_at: 2012-11-25 14:13:26

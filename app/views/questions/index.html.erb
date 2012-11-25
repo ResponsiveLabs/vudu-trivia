@@ -1,0 +1,35 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Explanation</th>
+    <th>Answer url</th>
+    <th>Points to earn</th>
+    <th>Timer in seconds</th>
+    <th>Published</th>
+    <th>Started at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.title %></td>
+    <td><%= question.explanation %></td>
+    <td><%= question.answer_url %></td>
+    <td><%= question.points_to_earn %></td>
+    <td><%= question.timer_in_seconds %></td>
+    <td><%= question.published %></td>
+    <td><%= question.started_at %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>
