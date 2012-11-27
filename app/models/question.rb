@@ -3,4 +3,6 @@ class Question < ActiveRecord::Base
 
   has_many :assignments
   has_many :games, through: :assignments
+
+  serialize :possible_answers, Array
 end
