@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128045857) do
+ActiveRecord::Schema.define(:version => 20121128140642) do
 
   create_table "assignments", :force => true do |t|
     t.integer "game_id"
@@ -22,23 +22,23 @@ ActiveRecord::Schema.define(:version => 20121128045857) do
   add_index "assignments", ["question_id"], :name => "index_assignments_on_question_id"
 
   create_table "games", :force => true do |t|
-    t.integer  "earned_points"
-    t.integer  "correct_answers_count"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.integer  "current_question_index"
+    t.integer  "earned_points",          :default => 0
+    t.integer  "correct_answers_count",  :default => 0
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "current_question_index", :default => 0
   end
 
   create_table "questions", :force => true do |t|
-    t.string   "title"
-    t.text     "explanation"
+    t.string   "title",                               :null => false
+    t.text     "explanation",                         :null => false
     t.string   "answer_url"
-    t.integer  "points_to_earn"
-    t.integer  "timer_in_seconds"
-    t.boolean  "published"
+    t.integer  "points_to_earn",   :default => 10
+    t.integer  "timer_in_seconds", :default => 60
+    t.boolean  "published",        :default => false
     t.datetime "started_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.text     "possible_answers"
   end
 
