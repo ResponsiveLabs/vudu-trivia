@@ -76,7 +76,9 @@
 
 <section id="get-started">
   <p>Welcome to your Facebook app, running on <span>heroku</span>!</p>
-  <%= link_to "Juega ya!", new_game_path, class: "large button" %>
+  <%= form_for(Game.new) do |f| %>
+    <%= f.submit 'Juega ya!', class: "large button" %>
+  <% end %>
 </section>
 
 

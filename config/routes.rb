@@ -8,6 +8,8 @@ VuduTriviaStaging::Application.routes.draw do
   resources :questions
   resources :games
 
+  put '/games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

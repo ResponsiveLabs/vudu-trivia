@@ -19,19 +19,11 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
 
+    @index = @game.current_question_index
+    @question = @game.questions[@index]
+
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @game }
-    end
-  end
-
-  # GET /games/new
-  # GET /games/new.json
-  def new
-    @game = Game.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.json { render json: @game }
     end
   end
@@ -46,6 +38,9 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(params[:game])
 
+    @game.current_question_index = 0
+    @game.questions = Question.all.shuffle[0..9]
+
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -54,6 +49,20 @@ class GamesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def answer
+    @game = Game.find(params[:id])
+
+    @game.current_question_index += 1
+    @game.save
+
+    @index = @game.current_question_index
+    @question = @game.questions[@index]
+
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -80,7 +89,7 @@ class GamesController < ApplicationController
     @game.destroy
 
     respond_to do |format|
-      format.html { redirect_to games_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

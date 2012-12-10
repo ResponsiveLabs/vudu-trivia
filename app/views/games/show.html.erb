@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Vudutrivia</h1>
+
 <p>
   <b>Earned points:</b>
   <%= @game.earned_points %>
@@ -10,6 +12,12 @@
   <%= @game.correct_answers_count %>
 </p>
 
+<hr />
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<p>Pregunta <span id='index'><%= @index + 1 %></span>/<%= @game.questions.size %></p>
+
+<p id='question-title'><%= @question.title %></p>
+
+<%= link_to 'Cancelar', @game, method: :delete %>
+<%= link_to 'Responder', answer_path(@game.id, @question.id), method: :put, remote: true %>
+
