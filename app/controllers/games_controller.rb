@@ -15,7 +15,6 @@ class GamesController < ApplicationController
   end
 
   # GET /games/1
-  # GET /games/1.json
   def show
     @game = Game.find(params[:id])
 
@@ -24,7 +23,6 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @game }
     end
   end
 
@@ -61,8 +59,10 @@ class GamesController < ApplicationController
     @index = @game.current_question_index
     @question = @game.questions[@index]
 
-    respond_to do |format|
-      format.js
+    if @index < @game.questions.size
+      render 'show'
+    else
+      redirect_to finish_url(@game), :status => :found
     end
   end
 
@@ -93,4 +93,9 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def finish
+    @game = Game.find(params[:id])
+  end
+
 end
