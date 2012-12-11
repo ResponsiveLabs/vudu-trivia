@@ -1,0 +1,21 @@
+<h1>Vudutrivia</h1>
+
+<hr />
+
+<p>El juego ha finalizado!</p>
+
+<p>
+  <b>Earned points:</b>
+  <%= @game.earned_points %>
+</p>
+
+<p>
+  <b>Correct answers count:</b>
+  <%= @game.correct_answers_count %>
+</p>
+
+<%= form_for(Game.new) do |f| %>
+  <%= f.submit 'Jugar de nuevo', class: "large button" %>
+<% end %>
+
+
