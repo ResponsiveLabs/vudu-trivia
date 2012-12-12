@@ -29,6 +29,9 @@ gem 'jquery-rails'
 gem "devise"
 gem 'rails_admin'
 
+gem "rmagick"
+gem 'carrierwave'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
