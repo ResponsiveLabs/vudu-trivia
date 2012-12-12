@@ -19,3 +19,6 @@
 /config/database.yml
 *.DS_Store
 
+# Carrierwave
+public/uploads/
+
