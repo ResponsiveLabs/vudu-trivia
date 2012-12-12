@@ -14,6 +14,13 @@
 
 <% questions_counter, questions_size = @index + 1, @game.questions.size %>
 
+<ul>
+  <li><%= image_tag @question.image1_url(:thumb) %></li>
+  <li><%= image_tag @question.image2_url(:thumb) %></li>
+  <li><%= image_tag @question.image3_url(:thumb) %></li>
+</ul>
+
+
 <p>Pregunta <span id='index'><%= questions_counter %></span>/<%= questions_size %></p>
 <p id='question-title'><%= @question.title %></p>
 
