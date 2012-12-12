@@ -31,6 +31,7 @@ gem 'rails_admin'
 
 gem "rmagick"
 gem 'carrierwave'
+gem "fog", "~> 1.3.1"
 
 group :development do
   gem "better_errors"
