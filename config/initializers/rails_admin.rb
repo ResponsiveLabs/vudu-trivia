@@ -110,6 +110,10 @@ RailsAdmin.config do |config|
     end
 
     edit do
+      configure :possible_answers do
+        help 'Split possible answers with commas'
+      end
+
       configure :started_at do hide end
       configure :created_at do hide end
       configure :updated_at do hide end
