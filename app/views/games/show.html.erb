@@ -1,18 +1,14 @@
 <h1>Vudutrivia</h1>
 
-<p>
-  <b>Earned points:</b>
-  <%= @game.earned_points %>
-</p>
+<% questions_counter = @index + 1 %>
 
-<p>
-  <b>Correct answers count:</b>
-  <%= @game.correct_answers_count %>
-</p>
+<ul>
+  <li>Earned points: <%= @game.earned_points %></li>
+  <li>Correct answers count: <%= @game.correct_answers_count %></li>
+  <li>Pregunta <span id='index'><%= questions_counter %></span>/<%= @game.questions.size %></li>
+<ul>
 
 <hr />
-
-<% questions_counter, questions_size = @index + 1, @game.questions.size %>
 
 <ul>
   <li><%= image_tag @question.image1_url(:thumb) %></li>
@@ -20,10 +16,9 @@
   <li><%= image_tag @question.image3_url(:thumb) %></li>
 </ul>
 
-
-<p>Pregunta <span id='index'><%= questions_counter %></span>/<%= questions_size %></p>
-<p id='question-title'><%= @question.title %></p>
-
-<% submit_title = questions_counter < questions_size ? 'Responder' : 'Finalizar' %>
-<%= link_to submit_title, answer_path(@game.id, @question.id), method: :put %>
+<%= form_tag(answer_path(@game.id, @question.id), method: :put) do %>
+  <p id='question-title'><%= @question.title %></p>
+  <% submit_title = questions_counter < @game.questions.size ? 'Responder' : 'Finalizar' %>
+  <%= submit_tag submit_title %>
+<% end %>
 
