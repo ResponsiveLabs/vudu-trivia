@@ -1,0 +1,8 @@
+
+es:
+  games:
+    show:
+      question: '¿A qué película se refieren estas imágenes?'
+      answer: 'Siguiente'
+      finish: 'Finalizar'
+
