@@ -53,7 +53,9 @@ class GamesController < ApplicationController
   def answer
     @game = Game.find(params[:id])
 
-    @game.current_question_index += 1
+    current_question = @game.questions[@game.current_question_index]
+    @game.answer_question(current_question, params[:answer])
+
     @game.save
 
     @index = @game.current_question_index

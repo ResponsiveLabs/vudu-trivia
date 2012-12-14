@@ -18,7 +18,8 @@
 
 <%= form_tag(answer_path(@game.id, @question.id), method: :put) do %>
   <p id='question-title'><%= t('.question') %></p>
-  <% submit_title = questions_counter < @game.questions.size ? t('.answer') : t('.finish') %>
+  <%= text_field_tag :answer, nil, placeholder: t('.placeholder') %>
+  <% submit_title = questions_counter < @game.questions.size ? t('.next') : t('.finish') %>
   <%= submit_tag submit_title, class: 'button' %>
 <% end %>
 
