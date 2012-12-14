@@ -24,7 +24,6 @@
 <p>Pregunta <span id='index'><%= questions_counter %></span>/<%= questions_size %></p>
 <p id='question-title'><%= @question.title %></p>
 
-<%= link_to 'Cancelar', @game, method: :delete %>
 <% submit_title = questions_counter < questions_size ? 'Responder' : 'Finalizar' %>
 <%= link_to submit_title, answer_path(@game.id, @question.id), method: :put %>
 
