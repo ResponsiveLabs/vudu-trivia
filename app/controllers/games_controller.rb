@@ -3,17 +3,6 @@ class GamesController < ApplicationController
     render 'welcome'
   end
 
-  # GET /games
-  # GET /games.json
-  def index
-    @games = Game.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
-    end
-  end
-
   # GET /games/1
   def show
     @game = Game.find(params[:id])
@@ -24,11 +13,6 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
     end
-  end
-
-  # GET /games/1/edit
-  def edit
-    @game = Game.find(params[:id])
   end
 
   # POST /games
@@ -50,6 +34,7 @@ class GamesController < ApplicationController
     end
   end
 
+  # PUT /games/:id/questions/:question_id/answer
   def answer
     @game = Game.find(params[:id])
 
@@ -68,20 +53,10 @@ class GamesController < ApplicationController
     end
   end
 
-  # PUT /games/1
-  # PUT /games/1.json
-  def update
+  # GET /games/:id/finish
+  def finish
+    # TODO validate that game was finished
     @game = Game.find(params[:id])
-
-    respond_to do |format|
-      if @game.update_attributes(params[:game])
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /games/1
@@ -94,10 +69,6 @@ class GamesController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
-  end
-
-  def finish
-    @game = Game.find(params[:id])
   end
 
 end
