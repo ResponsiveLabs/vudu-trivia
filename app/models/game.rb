@@ -15,4 +15,8 @@ class Game < ActiveRecord::Base
     success
   end
 
+  def has_ended?
+    current_question_index >= questions.size
+  end
+
 end

@@ -1,4 +1,10 @@
 class GamesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+
+  def not_found
+    redirect_to root_path
+  end
+
   def welcome
     render 'welcome'
   end
@@ -55,8 +61,12 @@ class GamesController < ApplicationController
 
   # GET /games/:id/finish
   def finish
-    # TODO validate that game was finished
     @game = Game.find(params[:id])
+    if @game && @game.has_ended?
+      render 'finish'
+    elsif @game
+      redirect_to game_url(@game)
+    end
   end
 
   # DELETE /games/1
