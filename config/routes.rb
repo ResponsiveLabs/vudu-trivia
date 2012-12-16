@@ -4,11 +4,10 @@ VuduTriviaStaging::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => 'games#welcome'
-
-  resources :games
-
-  put '/games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
-  get '/games/:id/finish', to: 'games#finish', as: :finish
+  post 'games', to: 'games#create'
+  get 'games/:id', to: 'games#show', as: :game
+  put 'games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
+  get 'games/:id/finish', to: 'games#finish', as: :finish
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
