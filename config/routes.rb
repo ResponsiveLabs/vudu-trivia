@@ -5,7 +5,6 @@ VuduTriviaStaging::Application.routes.draw do
 
   root :to => 'games#welcome'
 
-  resources :questions
   resources :games
 
   put '/games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
