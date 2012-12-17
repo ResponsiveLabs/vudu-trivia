@@ -1,37 +1,68 @@
-<h1>Vudutrivia</h1>
-
 <% questions_counter = @index + 1 %>
 
-<ul>
-  <li>Earned points: <%= @game.earned_points %></li>
-  <li>Correct answers count: <%= @game.correct_answers_count %></li>
-  <li>Pregunta <span id='index'><%= questions_counter %></span>/<%= @game.questions.size %></li>
-<ul>
+<div class="row">
+  <div class="four columns">
+    <%= t('.scoreboard.question') %> <span id='index'><%= questions_counter %></span>/<%= @game.questions.size %>
+  </div>
+  <div class="four columns">
+    <%= t('.scoreboard.correct_answers') %>: <%= @game.correct_answers_count %>
+  </div>
+  <div class="four columns">
+    <%= t('.scoreboard.points') %>: <%= @game.earned_points %>
+  </div>
+</div>
 
 <hr />
 
-<% if @game.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+<%= render('errors') if @game.errors.any? %>
 
-    <ul>
-    <% @game.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<br />
+
+<div class="row">
+  <div class="four columns centered">
+    <h2 id="timer"><%= @question.timer_in_seconds %></h2>
   </div>
-<% end %>
+</div>
 
-<ul>
-  <li><%= image_tag @question.image1_url(:thumb) %></li>
-  <li><%= image_tag @question.image2_url(:thumb) %></li>
-  <li><%= image_tag @question.image3_url(:thumb) %></li>
-</ul>
+<br />
 
-<%= form_tag(answer_path(@game.id, @question.id), method: :put) do %>
-  <p id='question-title'><%= t('.question') %></p>
-  <%= text_field_tag :answer, nil, placeholder: t('.placeholder') %>
-  <% submit_title = questions_counter < @game.questions.size ? t('.next') : t('.finish') %>
-  <%= submit_tag submit_title, class: 'button' %>
-<% end %>
+<div class="row">
+  <div class="four columns">
+    <%= image_tag @question.image1_url(:thumb) %>
+  </div>
+  <div class="four columns">
+    <%= image_tag @question.image2_url(:thumb) %>
+  </div>
+  <div class="four columns">
+    <%= image_tag @question.image3_url(:thumb) %>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="twelve columns">
+    <h3 id='question-title'><%= t('.question') %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <span class="tag"></span>
+  </div>
+</div>
+
+<br /><br />
+
+<div class="row">
+  <%= form_tag(answer_path(@game.id, @question.id), method: :put) do %>
+    <div class="eight columns">
+      <%= text_field_tag :answer, nil, placeholder: t('.placeholder'), class: 'eight columns' %>
+    </div>
+    <div class="four columns">
+      <% submit_title = questions_counter < @game.questions.size ? t('.next') : t('.finish') %>
+      <%= submit_tag submit_title, class: 'button' %>
+    </div>
+  <% end %>
+</div>
 

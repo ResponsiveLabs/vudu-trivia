@@ -35,8 +35,37 @@ es:
         other: "más de %{count} años"
   games:
     show:
+      correct: '¡Correcto!'
       finish: 'Finalizar'
       next: 'Siguiente'
       placeholder: 'Escribe el nombre de la película...'
       question: '¿A qué película se refieren estas imágenes?'
+      scoreboard:
+        question: 'Pregunta'
+        correct_answers: 'Respuestas correctas'
+        points: 'Puntos'
+    finish:
+      accumulated_points: 'Puntos acumulados'
+      correct_answers: 'Respuestas correctas'
+      correct_answers_count: '%{count} de %{total}'
+      earned_points: 'Puntos ganados'
+      end_message: 'Juego Terminado'
+      movies_message: 'Las películas de tu juego en Vudu.mx'
+      promotions: 'Ver más promociones'
+      ranked_at: 'Estás en el lugar'
+      results: 'Resultados'
+    welcome:
+      friends_playing: 'Tienes 5 amigos jugando:'
+      invite: 'Invitar más amigos'
+      play: 'Jugar'
+      slogan: 'Vudutrivia, el juego para los amantes del cine'
+      teaser_message: 'Conoce los premios y promociones que Vudu.mx tiene para tí:'
+      teaser_title: '¡Juega y Gana!'
+      visit_html: "<a href='http://www.vudu.mx' target='_blank'>Visita Vudu.mx</a>"
+  layout:
+    footer:
+      copy_html: "<a href='http://www.vudu.mx' target='_blank'>Vudu.mx</a> &copy; 2012"
+      privacy_html: "<a href='http://www.vudu.mx' target='_blank'>Pol&iacute;ticas de Privacidad</a>"
+    header:
+      app_name: 'Vudutrivia'
 
