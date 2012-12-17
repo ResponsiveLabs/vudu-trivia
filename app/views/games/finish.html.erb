@@ -1,21 +1,130 @@
-<h1>Vudutrivia</h1>
+<div class="row">
+  <div class="four columns centered">
+    <%=t '.end_message' %>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="four columns centered">
+    <h3><%=t '.results' %></h3>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="four columns">
+    <div class="row">
+      <div class="twelve columns">
+        <%= t('.correct_answers') %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <h1><%=t '.correct_answers_count', :count => @game.correct_answers_count, :total => @game.questions.size %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="four columns">
+    <div class="row">
+      <div class="twelve columns">
+        <%=t '.earned_points' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <h1><%= @game.earned_points %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="four columns">
+    <div class="row">
+      <div class="twelve columns">
+        <%=t '.accumulated_points' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <h1>135</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <span><%=t '.ranked_at' %></span> <b>#3459</b>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="eight columns centered">
+
+    <div class="row">
+      <div class="two columns">
+        Top 5:
+      </div>
+      <div class="two columns">
+        <img src="http://placehold.it/40x40" />
+      </div>
+      <div class="two columns">
+        <img src="http://placehold.it/40x40" />
+      </div>
+      <div class="two columns">
+        <img src="http://placehold.it/40x40" />
+      </div>
+      <div class="two columns">
+        <img src="http://placehold.it/40x40" />
+      </div>
+      <div class="two columns">
+        <img src="http://placehold.it/40x40" />
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <hr />
 
-<p>El juego ha finalizado!</p>
 
-<p>
-  <b>Earned points:</b>
-  <%= @game.earned_points %>
-</p>
+<div class="row">
+  <div class="twelve columns">
 
-<p>
-  <b>Correct answers count:</b>
-  <%= @game.correct_answers_count %>
-</p>
+  </div>
+</div>
 
-<%= form_for(Game.new) do |f| %>
-  <%= f.submit 'Jugar de nuevo', class: "large button" %>
-<% end %>
+<br />
 
+<div class="row">
+  <div class="eight columns centered">
+    <h3><%=t '.movies_message' %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="three columns">
+    <img src="http://placehold.it/200x160" />
+  </div>
+  <div class="three columns">
+    Película 1
+  </div>
+  <div class="three columns">
+    <img src="http://placehold.it/200x160" />
+  </div>
+  <div class="three columns">
+    Película 2
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="four columns centered">
+    <a class="button large" href="http://www.vudu.mx" target="_blank"><%=t '.promotions' %></a>
+  </div>
+</div>
 
