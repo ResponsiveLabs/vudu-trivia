@@ -32,9 +32,39 @@
   <![endif]-->
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+  <div class="row"><div class="twelve columns">
+
+      <div class="row">
+        <div class="twelve columns">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="eight columns">
+          <h1><%= t('layout.header.app_name') %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <%= yield %>
+        </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <%= t('layout.footer.copy_html') %>
+        </div>
+        <div class="six columns">
+          <%= t('layout.footer.privacy_html') %>
+        </div>
+      </div>
+
+  </div></div>
+
 </body>
 </html>
