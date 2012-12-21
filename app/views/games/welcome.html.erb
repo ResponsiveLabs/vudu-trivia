@@ -63,26 +63,18 @@
 
     <div class="row">
       <div class="twelve columns">
-        <p><%=t '.friends_playing' %></p>
+        <p><%=t '.friends_playing', :count => @friends_using_app.size %></p>
       </div>
     </div>
 
     <div class="row">
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
+      <% @friends[0..4].each do |friend_result| %>
+        <div class="two columns">
+          <% id, name = friend_result['id'], friend_result['name'] %>
+          <% pic_url = "https://graph.facebook.com/#{id}/picture?type=small" %>
+          <img src='<%= pic_url %>' alt='<%= name %>' />
+        </div>
+      <% end %>
       <div class="two columns">
         <a class="button" href="#"><%=t '.invite' %></a>
       </div>

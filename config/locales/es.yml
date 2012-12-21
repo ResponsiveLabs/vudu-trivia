@@ -55,7 +55,7 @@ es:
       ranked_at: 'Estás en el lugar'
       results: 'Resultados'
     welcome:
-      friends_playing: 'Tienes 5 amigos jugando:'
+      friends_playing: 'Tienes %{count} amigos jugando:'
       invite: 'Invitar más amigos'
       play: 'Jugar'
       slogan: 'Vudutrivia, el juego para los amantes del cine'
