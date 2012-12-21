@@ -1,13 +1,7 @@
 class GamesController < ApplicationController
+  before_filter :load_facebook_user
+
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
-
-  def not_found
-    redirect_to root_path
-  end
-
-  def welcome
-    render 'welcome'
-  end
 
   # GET /games/1
   def show
@@ -79,6 +73,12 @@ class GamesController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def not_found
+    redirect_to root_path
   end
 
 end

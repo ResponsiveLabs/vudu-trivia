@@ -28,6 +28,7 @@ gem 'jquery-rails'
 
 gem "devise"
 gem 'rails_admin'
+gem "koala"
 
 gem "rmagick"
 gem 'carrierwave'

@@ -9,6 +9,10 @@ VuduTriviaStaging::Application.routes.draw do
   put 'games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
   get 'games/:id/finish', to: 'games#finish', as: :finish
 
+  get '/auth/facebook' => 'application#facebook_auth'
+  get '/auth/facebook/callback' => 'application#facebook_auth_callback'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
