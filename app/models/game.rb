@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
 
   has_many :assignments
   has_many :questions, through: :assignments
+  belongs_to :user
 
   def answer_question(question, answer)
     success = false
