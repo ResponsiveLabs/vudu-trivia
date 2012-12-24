@@ -68,11 +68,9 @@
     </div>
 
     <div class="row">
-      <% @friends[0..4].each do |friend_result| %>
+      <% some_friends_using_app(5).each do |friend_result| %>
         <div class="two columns">
-          <% id, name = friend_result['id'], friend_result['name'] %>
-          <% pic_url = "https://graph.facebook.com/#{id}/picture?type=small" %>
-          <img src='<%= pic_url %>' alt='<%= name %>' />
+          <img src='<%= friend_result['pic_square'] %>' alt='<%= friend_result['name'] %>' />
         </div>
       <% end %>
       <div class="two columns">
