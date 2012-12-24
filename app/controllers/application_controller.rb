@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
   def load_facebook_user
     @graph = Koala::Facebook::API.new(access_token)
     if access_token
-      @user = @graph.get_object("me")
+      @me = @graph.get_object("me")
       @friends = @graph.get_connections('me', 'friends')
       @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
     end

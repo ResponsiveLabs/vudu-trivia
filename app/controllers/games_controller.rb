@@ -23,15 +23,25 @@ class GamesController < ApplicationController
     @game.current_question_index = 0
     @game.questions = Question.all.shuffle[0..9]
 
+    @user = User.where(facebook_id: @me['id']).first if @me && !@me['id'].blank?
+    if @user.blank?
+      @user = User.initialize_from_facebook_graph(@me)
+    end
+
+    @game.user = @user
+
     respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render json: @game, status: :created, location: @game }
+      if @user.save
+        if @game.save
+          format.html { redirect_to @game, notice: 'Game was successfully created.' }
+        else
+          format.html { render action: "welcome", notice: @game.errors }
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.html { render action: "welcome", notice: @user.errors }
       end
     end
+
   end
 
   # PUT /games/:id/questions/:question_id/answer

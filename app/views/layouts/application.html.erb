@@ -49,9 +49,9 @@
           <h1><%= t('layout.header.app_name') %></h1>
         </div>
         <div class="four columns">
-          <% if @user %>
-            <img src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=small" />
-            <span><%= @user['name'] %></span>
+          <% if @me %>
+            <img src="https://graph.facebook.com/<%= @me['id'] %>/picture?type=small" />
+            <span><%= @me['name'] %></span>
           <% else %>
             <a href='/auth/facebook' class="fb_button fb_button_medium"><span class="fb_button_text">Log In</span></a>
           <% end %>

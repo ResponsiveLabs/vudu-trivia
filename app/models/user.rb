@@ -9,4 +9,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id
 
   has_many :games
+
+  def self.initialize_from_facebook_graph(me)
+    return nil if me.nil? || me['id'].blank?
+    parameters = {
+      email: "#{me['username']}@facebook.com",
+      facebook_id: me['id'],
+      password: me['id']
+    }
+    User.new(parameters)
+  end
+
 end
