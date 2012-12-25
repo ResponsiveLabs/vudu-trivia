@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  earned_points: 1
-  correct_answers_count: 1
-
-two:
-  earned_points: 1
-  correct_answers_count: 1
