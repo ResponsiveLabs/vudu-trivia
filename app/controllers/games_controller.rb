@@ -23,22 +23,19 @@ class GamesController < ApplicationController
     @game.current_question_index = 0
     @game.questions = Question.all.shuffle[0..9]
 
-    @user = User.where(facebook_id: @me['id']).first if @me && !@me['id'].blank?
-    if @user.blank?
-      @user = User.initialize_from_facebook_graph(@me)
+    @user = User.find_user_with_facebook_graph(@me)
+    unless @user.save
+      format.html { render action: "welcome", notice: @user.errors }
+      return false
     end
 
     @game.user = @user
 
     respond_to do |format|
-      if @user.save
-        if @game.save
-          format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        else
-          format.html { render action: "welcome", notice: @game.errors }
-        end
+      if @game.save
+        format.html { redirect_to @game, notice: 'Game was successfully created.' }
       else
-        format.html { render action: "welcome", notice: @user.errors }
+        format.html { render action: "welcome", notice: @game.errors }
       end
     end
 

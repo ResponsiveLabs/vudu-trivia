@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
     User.new(parameters)
   end
 
+  def self.find_user_with_facebook_graph(graph)
+    return nil if graph.nil? || graph['id'].blank?
+    found_user = User.where(facebook_id: graph['id']).first
+    found_user || User.initialize_from_facebook_graph(graph)
+  end
+
   def rank
     # TODO: look for a better alternative
     User.all(:order => "points").index(self)
