@@ -52,8 +52,6 @@
           <% if @me %>
             <img src="https://graph.facebook.com/<%= @me['id'] %>/picture?type=small" />
             <span><%= @me['name'] %></span>
-          <% else %>
-            <a href='/auth/facebook' class="fb_button fb_button_medium"><span class="fb_button_text">Log In</span></a>
           <% end %>
         </div>
       </div>
