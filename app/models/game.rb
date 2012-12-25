@@ -10,6 +10,8 @@ class Game < ActiveRecord::Base
     if question.answered_right? answer
       self.correct_answers_count += 1
       self.earned_points += question.points_to_earn
+      self.user.points += question.points_to_earn
+      self.user.save
       success = true
     end
     self.current_question_index += 1

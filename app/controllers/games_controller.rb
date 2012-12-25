@@ -66,6 +66,8 @@ class GamesController < ApplicationController
   # GET /games/:id/finish
   def finish
     @game = Game.find(params[:id])
+    @user = User.where(facebook_id: @me['id']).first
+
     if @game && @game.has_ended?
       render 'finish'
     elsif @game

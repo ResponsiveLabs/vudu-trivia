@@ -63,6 +63,8 @@ class ApplicationController < ActionController::Base
       @friends = @graph.get_connections('me', 'friends')
       @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
     end
+
+    @friends_using_app ||= []
   end
 
 end

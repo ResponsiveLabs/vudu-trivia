@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224191816) do
+ActiveRecord::Schema.define(:version => 20121224222607) do
 
   create_table "assignments", :force => true do |t|
     t.integer "game_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20121224191816) do
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
     t.integer  "facebook_id",            :limit => 8
+    t.integer  "points",                              :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
