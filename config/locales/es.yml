@@ -55,8 +55,9 @@ es:
       ranked_at: 'Estás en el lugar'
       results: 'Resultados'
     welcome:
-      friends_playing: 'Tienes 5 amigos jugando:'
+      friends_playing: 'Tienes %{count} amigos jugando:'
       invite: 'Invitar más amigos'
+      login: 'Iniciar sesión'
       play: 'Jugar'
       slogan: 'Vudutrivia, el juego para los amantes del cine'
       teaser_message: 'Conoce los premios y promociones que Vudu.mx tiene para tí:'

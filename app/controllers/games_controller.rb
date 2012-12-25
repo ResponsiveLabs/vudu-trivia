@@ -1,13 +1,7 @@
 class GamesController < ApplicationController
+  before_filter :load_facebook_user
+
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
-
-  def not_found
-    redirect_to root_path
-  end
-
-  def welcome
-    render 'welcome'
-  end
 
   # GET /games/1
   def show
@@ -29,15 +23,22 @@ class GamesController < ApplicationController
     @game.current_question_index = 0
     @game.questions = Question.all.shuffle[0..9]
 
+    @user = User.find_user_with_facebook_graph(@me)
+    unless @user.save
+      format.html { render action: "welcome", notice: @user.errors }
+      return false
+    end
+
+    @game.user = @user
+
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render json: @game, status: :created, location: @game }
       else
-        format.html { render action: "new" }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.html { render action: "welcome", notice: @game.errors }
       end
     end
+
   end
 
   # PUT /games/:id/questions/:question_id/answer
@@ -62,6 +63,8 @@ class GamesController < ApplicationController
   # GET /games/:id/finish
   def finish
     @game = Game.find(params[:id])
+    @user = User.where(facebook_id: @me['id']).first
+
     if @game && @game.has_ended?
       render 'finish'
     elsif @game
@@ -79,6 +82,12 @@ class GamesController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def not_found
+    redirect_to root_path
   end
 
 end
