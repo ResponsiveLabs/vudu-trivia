@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
     User.new(parameters)
   end
 
+  def rank
+    # TODO: look for a better alternative
+    User.all(:order => "points").index(self)
+  end
+
 end
