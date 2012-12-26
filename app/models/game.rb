@@ -14,7 +14,6 @@ class Game < ActiveRecord::Base
       self.user.save
       success = true
     end
-    self.current_question_index += 1
     success
   end
 
