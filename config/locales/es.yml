@@ -34,16 +34,20 @@ es:
         one:  "más de 1 año"
         other: "más de %{count} años"
   games:
-    show:
+    dashboard:
+      question: 'Pregunta'
+      correct_answers: 'Respuestas correctas'
+      points: 'Puntos'
+    description:
       correct: '¡Correcto!'
       finish: 'Finalizar'
+      incorrect: '¡Incorrecto!'
       next: 'Siguiente'
+    input:
       placeholder: 'Escribe el nombre de la película...'
       question: '¿A qué película se refieren estas imágenes?'
-      scoreboard:
-        question: 'Pregunta'
-        correct_answers: 'Respuestas correctas'
-        points: 'Puntos'
+      send: 'Enviar'
+      skip: 'Saltar'
     finish:
       accumulated_points: 'Puntos acumulados'
       correct_answers: 'Respuestas correctas'
