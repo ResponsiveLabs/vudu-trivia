@@ -44,12 +44,22 @@ class GamesController < ApplicationController
   # PUT /games/:id/questions/:question_id/answer
   def answer
     @game = Game.find(params[:id])
-
     current_question = @game.questions[@game.current_question_index]
     @game.answer_question(current_question, params[:answer])
-
     @game.save
 
+    render_next_question
+  end
+
+  def skip
+    @game = Game.find(params[:id])
+    @game.current_question_index += 1
+    @game.save
+
+    render_next_question
+  end
+
+  def render_next_question
     @index = @game.current_question_index
     @question = @game.questions[@index]
 

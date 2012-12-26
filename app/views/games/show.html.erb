@@ -59,9 +59,12 @@
     <div class="eight columns">
       <%= text_field_tag :answer, nil, placeholder: t('.placeholder'), class: 'eight columns' %>
     </div>
-    <div class="four columns">
-      <% submit_title = questions_counter < @game.questions.size ? t('.next') : t('.finish') %>
+    <div class="two columns">
+      <% submit_title = questions_counter < @game.questions.size ? t('.send') : t('.finish') %>
       <%= submit_tag submit_title, class: 'button' %>
+    </div>
+    <div class="two columns">
+      <%= link_to t('.skip'), skip_path(@game.id, @question.id), class: 'button' %>
     </div>
   <% end %>
 </div>

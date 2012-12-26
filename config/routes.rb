@@ -7,6 +7,7 @@ VuduTriviaStaging::Application.routes.draw do
   post 'games', to: 'games#create'
   get 'games/:id', to: 'games#show', as: :game
   put 'games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
+  get 'games/:id/questions/:question_id/skip', to: 'games#skip', as: :skip
   get 'games/:id/finish', to: 'games#finish', as: :finish
 
   get '/auth/facebook' => 'application#facebook_auth'

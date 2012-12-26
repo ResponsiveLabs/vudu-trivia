@@ -44,6 +44,8 @@ es:
         question: 'Pregunta'
         correct_answers: 'Respuestas correctas'
         points: 'Puntos'
+      send: 'Enviar'
+      skip: 'Saltar'
     finish:
       accumulated_points: 'Puntos acumulados'
       correct_answers: 'Respuestas correctas'
