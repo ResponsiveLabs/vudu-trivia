@@ -11,7 +11,8 @@
     <% if @explain_answer %>
       <h2 id="points">+<%= @answered_right ? @question.points_to_earn : 0 %> pts.</h2>
     <% else %>
-      <h2 id="timer"><%= @question.timer_in_seconds %> seg.</h2>
+      <h2 id="timer"><span id="seconds"><%= @question.timer_in_seconds %></span> seg.</h2>
+      <%= javascript_tag "var redirectUrl = '#{next_path(@game.id)}'" %>
     <% end %>
   </div>
 </div>
