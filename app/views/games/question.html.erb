@@ -1,0 +1,30 @@
+<%= render('dashboard') %>
+
+<hr />
+
+<%= render('errors') if @game.errors.any? %>
+
+<br />
+
+<div class="row">
+  <div class="four columns centered">
+    <% if @explain_answer %>
+      <h2 id="points">+<%= @answered_right ? @question.points_to_earn : 0 %> pts.</h2>
+    <% else %>
+      <h2 id="timer"><%= @question.timer_in_seconds %> seg.</h2>
+    <% end %>
+  </div>
+</div>
+
+<br />
+
+<%= render('images') %>
+
+<br />
+
+<% if @explain_answer %>
+  <%= render('description') %>
+<% else %>
+  <%= render('input') %>
+<% end %>
+

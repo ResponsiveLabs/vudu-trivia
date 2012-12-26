@@ -4,10 +4,13 @@ VuduTriviaStaging::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => 'games#welcome'
+
   post 'games', to: 'games#create'
   get 'games/:id', to: 'games#show', as: :game
+
+  get 'games/:id/next', to: 'games#next', as: :next
   put 'games/:id/questions/:question_id/answer', to: 'games#answer', as: :answer
-  get 'games/:id/questions/:question_id/skip', to: 'games#skip', as: :skip
+
   get 'games/:id/finish', to: 'games#finish', as: :finish
 
   get '/auth/facebook' => 'application#facebook_auth'

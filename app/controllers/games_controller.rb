@@ -3,18 +3,6 @@ class GamesController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
 
-  # GET /games/1
-  def show
-    @game = Game.find(params[:id])
-
-    @index = @game.current_question_index
-    @question = @game.questions[@index]
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
-
   # POST /games
   # POST /games.json
   def create
@@ -41,33 +29,46 @@ class GamesController < ApplicationController
 
   end
 
-  # PUT /games/:id/questions/:question_id/answer
-  def answer
-    @game = Game.find(params[:id])
-    current_question = @game.questions[@game.current_question_index]
-    @game.answer_question(current_question, params[:answer])
-    @game.save
-
-    render_next_question
+  # GET /games/1
+  def show
+    question
   end
 
-  def skip
+  def question
+    @game = Game.find(params[:id])
+    render_question
+  end
+
+  def next
     @game = Game.find(params[:id])
     @game.current_question_index += 1
     @game.save
-
-    render_next_question
+    render_question
   end
 
-  def render_next_question
+  def render_question
     @index = @game.current_question_index
     @question = @game.questions[@index]
 
     if @index < @game.questions.size
-      render 'show'
+      render 'question'
     else
       redirect_to finish_url(@game), :status => :found
     end
+  end
+
+  def render_question_explanation
+    @explain_answer = true
+    render_question
+  end
+
+  # PUT /games/:id/questions/:question_id/answer
+  def answer
+    @game = Game.find(params[:id])
+    @question = @game.questions[@game.current_question_index]
+    @answered_right = @game.answer_question(@question, params[:answer])
+    @game.save
+    render_question_explanation
   end
 
   # GET /games/:id/finish
