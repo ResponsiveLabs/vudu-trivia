@@ -5,7 +5,6 @@
 module Facebook
   APP_ID = ENV['FACEBOOK_APP_ID']
   SECRET = ENV['FACEBOOK_SECRET']
-  APP_HOST = ENV['FACEBOOK_APP_HOST']
 end
 
 Koala::Facebook::OAuth.class_eval do
