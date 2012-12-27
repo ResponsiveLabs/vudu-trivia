@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   rescue_from Koala::Facebook::OAuthTokenRequestError, :with => :handle_oauth_error
+  rescue_from Koala::Facebook::AuthenticationError, :with => :handle_oauth_error
 
   # Helpers
 
@@ -58,6 +59,7 @@ class ApplicationController < ActionController::Base
 
   def load_facebook_user
     @graph = Koala::Facebook::API.new(access_token)
+
     if access_token
       @me = @graph.get_object("me")
       @friends = @graph.get_connections('me', 'friends')
