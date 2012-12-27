@@ -1,0 +1,136 @@
+@import "reset";
+@import "fonts";
+@import "conf";
+@import "defaults";
+@import "scaffolds";
+@import "compass";
+@import "compass/layout/sticky-footer";
+@import "foundation_and_overrides";
+
+.welcome-content,
+.content {
+  width: 760px;
+  min-height: 990px;
+  margin: 0 auto;
+}
+
+.welcome-content {
+  background: image-url("bg-blue.png") center top no-repeat;
+}
+
+header {
+  height: 60px;
+  
+  .profile {
+    display: block;
+    padding: 10px;
+    float: right;
+    
+    span {
+      color: $vudu-blue;
+    }
+    
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    
+  }
+  
+}// End of header
+
+.main-logo {
+  display: block;
+  width: 543px;
+  height: 180px;
+  margin: 0 auto;
+  background: image-url("logo-large.png") 0 0 no-repeat;
+}
+
+h2.main-slogan {
+  margin: 20px 0 10px 0;
+  @include helvetica-light;
+  text-align: center;
+}
+
+section.play {
+  margin: 40px 0 60px 0;
+  
+  form {
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    
+    input[type="submit"] {
+      display: block;
+      width: 300px;
+      height: 100px;
+      border: 0;
+      cursor: pointer;
+      color: $white;
+      font-size: 40px;
+      @include helvetica-bold;
+      @include border-radius(10px, 10px);
+      @include background-image(linear-gradient($light-green, $light-green 30%, $dark-green 70%, $dark-green));
+    }
+    
+  }
+}
+
+section.friends {
+  width: 456px;
+  margin: 0 auto 40px;
+  display: block;
+  overflow: hidden;
+  
+  h3 {
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  ul {
+    display: block;
+    overflow: hidden;
+    float: left;
+    margin: 10px 0 20px 0;
+    
+    li {
+      float: left;
+      margin: 0 20px 0 0;
+    }
+  }
+  
+  a.button{
+    display: block;
+    float: left;
+    margin: 14px 0 0 0;
+    padding: 10px 20px 0 20px;
+    height: 30px;
+    color: $white;
+    font-size: 18px;
+    @include border-radius(10px, 10px);
+    @include background-image(linear-gradient($light-green, $light-green 30%, $dark-green 70%, $dark-green));
+  }
+}
+
+section.add-600x180 {
+  width: 600px;
+  height: 180px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+footer {
+  display: block;
+  overflow: hidden;
+  margin: 40px 0 0 0;
+  
+  .left {
+    float: left;
+    margin: 0 0 0 20px;
+  }
+  .right {
+    float: right;
+    margin: 0 20px 0 0;
+  }
+}

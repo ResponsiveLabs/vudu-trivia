@@ -34,45 +34,7 @@
 <body>
 
   <%= render 'layouts/facebook' %>
-
-  <div class="row"><div class="twelve columns">
-
-      <div class="row">
-        <div class="twelve columns">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="eight columns">
-          <h1><%= t('layout.header.app_name') %></h1>
-        </div>
-        <div class="four columns">
-          <% if @me %>
-            <img src="https://graph.facebook.com/<%= @me['id'] %>/picture?type=small" />
-            <span><%= @me['name'] %></span>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="twelve columns">
-          <%= yield %>
-        </div>
-      </div>
-
-      <hr />
-      <div class="row">
-        <div class="six columns">
-          <%= t('layout.footer.copy_html') %>
-        </div>
-        <div class="six columns">
-          <%= t('layout.footer.privacy_html') %>
-        </div>
-      </div>
-
-  </div></div>
+  <%= yield %>
 
 </body>
 </html>

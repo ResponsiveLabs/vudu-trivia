@@ -59,11 +59,11 @@ es:
       ranked_at: 'Estás en el lugar'
       results: 'Resultados'
     welcome:
-      friends_playing: 'Tienes %{count} amigos jugando:'
-      invite: 'Invitar más amigos'
+      friends_playing: 'Tienes %{count} amigos jugando'
+      invite: 'Invitar'
       login: 'Iniciar sesión'
       play: 'Jugar'
-      slogan: 'Vudutrivia, el juego para los amantes del cine'
+      slogan: 'El juego para los amantes del cine'
       teaser_message: 'Conoce los premios y promociones que Vudu.mx tiene para tí:'
       teaser_title: '¡Juega y Gana!'
       visit_html: "<a href='http://www.vudu.mx' target='_blank'>Visita Vudu.mx</a>"
