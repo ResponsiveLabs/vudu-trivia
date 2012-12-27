@@ -1,31 +1,27 @@
-<%= render('dashboard') %>
+<div class="content">
+  
+  <%= render partial: "shared/header" %>
+  
+  <%= render('dashboard') %>
 
-<hr />
-
-<%= render('errors') if @game.errors.any? %>
-
-<br />
-
-<div class="row">
-  <div class="four columns centered">
+  <%= render('errors') if @game.errors.any? %>
+  
+  <div class="timer">
     <% if @explain_answer %>
       <h2 id="points">+<%= @answered_right ? @question.points_to_earn : 0 %> pts.</h2>
     <% else %>
-      <h2 id="timer"><span id="seconds"><%= @question.timer_in_seconds %></span> seg.</h2>
+      <h2 id="timer"><div class="clock"></div><span id="seconds"><%= @question.timer_in_seconds %></span> seg.</h2>
       <%= javascript_tag "var redirectUrl = '#{next_path(@game.id)}'" %>
     <% end %>
   </div>
+
+  <%= render('images') %>
+
+  <% if @explain_answer %>
+    <%= render('description') %>
+  <% else %>
+    <%= render('input') %>
+  <% end %>
+  
+  <%= render partial: "shared/footer" %>
 </div>
-
-<br />
-
-<%= render('images') %>
-
-<br />
-
-<% if @explain_answer %>
-  <%= render('description') %>
-<% else %>
-  <%= render('input') %>
-<% end %>
-

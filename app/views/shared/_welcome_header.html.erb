@@ -1,0 +1,14 @@
+<header>
+  <!--
+  <div class="notices">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>-->
+
+  <% if @me %>
+  <div class="profile">
+    <span><%= @me['name'] %></span>
+    <img src="https://graph.facebook.com/<%= @me['id'] %>/picture" />
+  </div>
+  <% end %>
+</header>

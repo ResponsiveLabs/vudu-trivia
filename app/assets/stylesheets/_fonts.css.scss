@@ -1,0 +1,28 @@
+// Typography Settings
+// ------------------------------------------
+
+@import "compass/css3/font-face";
+
+@mixin helvetica-light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin helvetica-ultra-light {
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin helvetica-medium {
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin helvetica-bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin arial {
+  font-family: "Arial", sans-serif;
+}

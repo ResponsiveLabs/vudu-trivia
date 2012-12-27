@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="four columns">
-    <%= image_tag @question.image1_url(:thumb) %>
-  </div>
-  <div class="four columns">
-    <%= image_tag @question.image2_url(:thumb) %>
-  </div>
-  <div class="four columns">
-    <%= image_tag @question.image3_url(:thumb) %>
-  </div>
-</div>
+<ul class="thumbnails">
+  <li class="left"><%= image_tag @question.image1_url(:thumb) %></li>
+  <li class="center"><%= image_tag @question.image2_url(:thumb) %></li>
+  <li class="right"><%= image_tag @question.image3_url(:thumb) %></li>
+</ul>
