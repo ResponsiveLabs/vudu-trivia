@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
 
   def facebook_auth_callback
     session[:access_token] = authenticator.get_access_token(params[:code])
-    redirect_to root_path
+    uri = ENV['RACK_ENV'] == 'production' ? Facebook::APP_HOST : root_path
+    redirect_to uri
   end
 
   def handle_oauth_error(error)
