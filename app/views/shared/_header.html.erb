@@ -1,18 +1,17 @@
-<div class="row">
-  <div class="twelve columns">
+<header>
+  <!--
+  <div class="notices">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  </div>-->
+  
+  <div class="logo">
+    <span><%= t('layout.header.app_name') %></span>
   </div>
-</div>
-
-<div class="row">
-  <div class="eight columns">
-    <h1><%= t('layout.header.app_name') %></h1>
+  <% if @me %>
+  <div class="profile">
+    <span><%= @me['name'] %></span>
+    <img src="https://graph.facebook.com/<%= @me['id'] %>/picture" />
   </div>
-  <div class="four columns">
-    <% if @me %>
-      <img src="https://graph.facebook.com/<%= @me['id'] %>/picture?type=small" />
-      <span><%= @me['name'] %></span>
-    <% end %>
-  </div>
-</div>
+  <% end %>
+</header>

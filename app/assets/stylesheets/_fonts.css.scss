@@ -19,6 +19,10 @@
   font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+@mixin helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 @mixin arial {
   font-family: "Arial", sans-serif;
 }
