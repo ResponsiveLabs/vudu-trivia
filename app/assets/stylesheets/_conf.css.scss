@@ -1,0 +1,14 @@
+$black:         #000000;
+$white:         #ffffff;
+$vudu-blue:     #0093D5;
+$light-green:   #4EB001;
+$dark-green:    #3A8600;
+$light-orange:  #D6802F;
+$dark-orange:   #F79837;
+$dark-orange2:  #E07102;
+
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}

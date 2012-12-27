@@ -1,130 +1,59 @@
-<div class="row">
-  <div class="four columns centered">
-    <%=t '.end_message' %>
-  </div>
+<div class="content">
+  
+  <%= render partial: "shared/header" %>
+  
+  <section class="dashboard">
+
+  </section>
+
+  <h3 class="game-results"><%=t '.results' %></h3>
+  
+  <ul class="stats">
+    <li>
+      <p><%= t('.correct_answers') %></p>
+      <h1><%=t '.correct_answers_count_html', :count => @game.correct_answers_count, :total => @game.questions.size %></h1>
+    </li>
+    <li>
+      <p><%=t '.earned_points' %></p>
+      <h1><%= @game.earned_points %></h1>
+    </li>
+    <li style="margin-right: 0;">
+      <p><%=t '.accumulated_points' %></p>
+      <h1><%= @user.points %></h1>
+    </li>
+  </ul>
+
+  <div class="rank"><span><%=t '.ranked_at' %></span> <b>#<%= @user.rank %></b></div>
+
+  <ul class="top-five">
+    <li class="title">Top 5:</li>
+    <li><img src="http://placehold.it/40x40" /></li>
+    <li><img src="http://placehold.it/40x40" /></li>
+    <li><img src="http://placehold.it/40x40" /></li>
+    <li><img src="http://placehold.it/40x40" /></li>
+    <li><img src="http://placehold.it/40x40" /></li>
+  </ul>
+  
+  <hr />
+
+
+  <h3 class="vudu-link"><%=t '.movies_message_html' %></h3>
+  
+
+  <ul class="latest-movies">
+    <li>
+      <span class="frame"><img src="http://placehold.it/200x160" /></span>
+      <h5>Película 1</h5>
+      <p><a href='http://www.vudu.mx' target='_blank'>Pelicula en Vudu.mx</a></p>
+    </li>
+    
+    <li>
+      <span class="frame"><img src="http://placehold.it/200x160" /></span>
+      <h5>Película 2</h5>
+      <p><a href='http://www.vudu.mx' target='_blank'>Pelicula en Vudu.mx</a></p>
+    </li>
+  </ul>
+  
+  <%= render partial: "shared/footer" %>
+
 </div>
-
-<br />
-
-<div class="row">
-  <div class="four columns centered">
-    <h3><%=t '.results' %></h3>
-  </div>
-</div>
-
-<br />
-
-<div class="row">
-  <div class="four columns">
-    <div class="row">
-      <div class="twelve columns">
-        <%= t('.correct_answers') %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <h1><%=t '.correct_answers_count', :count => @game.correct_answers_count, :total => @game.questions.size %></h1>
-      </div>
-    </div>
-  </div>
-  <div class="four columns">
-    <div class="row">
-      <div class="twelve columns">
-        <%=t '.earned_points' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <h1><%= @game.earned_points %></h1>
-      </div>
-    </div>
-  </div>
-  <div class="four columns">
-    <div class="row">
-      <div class="twelve columns">
-        <%=t '.accumulated_points' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <h1><%= @user.points %></h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="twelve columns">
-    <span><%=t '.ranked_at' %></span> <b>#<%= @user.rank %></b>
-  </div>
-</div>
-
-<br />
-
-<div class="row">
-  <div class="eight columns centered">
-
-    <div class="row">
-      <div class="two columns">
-        Top 5:
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-      <div class="two columns">
-        <img src="http://placehold.it/40x40" />
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<hr />
-
-
-<div class="row">
-  <div class="twelve columns">
-
-  </div>
-</div>
-
-<br />
-
-<div class="row">
-  <div class="eight columns centered">
-    <h3><%=t '.movies_message' %></h3>
-  </div>
-</div>
-
-<div class="row">
-  <div class="three columns">
-    <img src="http://placehold.it/200x160" />
-  </div>
-  <div class="three columns">
-    Película 1
-  </div>
-  <div class="three columns">
-    <img src="http://placehold.it/200x160" />
-  </div>
-  <div class="three columns">
-    Película 2
-  </div>
-</div>
-
-<br />
-
-<div class="row">
-  <div class="four columns centered">
-    <a class="button large" href="http://www.vudu.mx" target="_blank"><%=t '.promotions' %></a>
-  </div>
-</div>
-

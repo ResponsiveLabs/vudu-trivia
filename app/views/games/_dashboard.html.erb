@@ -1,12 +1,11 @@
-<div class="row">
-  <div class="four columns">
-    <%= t('.question') %> <span id='index'><%= @index + 1 %></span>/<%= @game.questions.size %>
+<section class="dashboard">
+  
+  <div class="info">
+    <ul>
+      <li><%= t('.question') %> <span class="blue"><span id='index'><%= @index + 1 %></span>/<%= @game.questions.size %></span></li>
+      <li><%= t('.correct_answers') %> <span class="blue"><%= @game.correct_answers_count %></span></li>
+      <li><%= t('.points') %>: <span class="blue"><%= @game.earned_points %></span></li>
+    </ul>
   </div>
-  <div class="four columns">
-    <%= t('.correct_answers') %>: <%= @game.correct_answers_count %>
-  </div>
-  <div class="four columns">
-    <%= t('.points') %>: <%= @game.earned_points %>
-  </div>
-</div>
-
+  
+</section>
