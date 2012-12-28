@@ -54,6 +54,7 @@ es:
       correct_answers_count_html: "%{count} <span>de</span> %{total}"
       earned_points: 'Puntos ganados'
       end_message: 'Juego Terminado'
+      movies_link_html: "<a href='%{url}' target='_blank'>Película en Vudu.mx</a>"
       movies_message_html: "Las películas de tu juego en <a href='http://www.vudu.mx' target='_blank'>Vudu.mx</a>"
       promotions: 'Ver más promociones'
       ranked_at: 'Estás en el lugar'

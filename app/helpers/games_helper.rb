@@ -12,4 +12,14 @@ module GamesHelper
     some_friends
   end
 
+  def some_movies_answered_right(amount)
+    some_movies = []
+    return some_movies if @game.nil?
+    @game.answered_right.uniq.shuffle[0..amount].each do |i|
+      question = Question.find(i)
+      some_movies << Movie.new({ cover: question.title_cover_url(:thumb), title: question.title, vudu_url: question.answer_url })
+    end
+    some_movies
+  end
+
 end
