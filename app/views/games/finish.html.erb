@@ -50,6 +50,12 @@
     <% end %>
   </ul>
 
+  <section class="play">
+    <%= form_for(Game.new) do |f| %>
+      <%= f.submit t('.play_again'), class: "large button" %>
+    <% end %>
+  </section>
+
   <%= render partial: "shared/footer" %>
 
 </div>
