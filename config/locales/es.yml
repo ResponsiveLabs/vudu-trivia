@@ -70,7 +70,7 @@ es:
   layout:
     footer:
       copy_html: "<a href='http://www.vudu.mx' target='_blank'>Vudu.mx</a> &copy; 2012"
-      privacy_html: "<a href='http://www.vudu.mx' target='_blank'>Pol&iacute;ticas de Privacidad</a>"
+      privacy_html: "<a href='http://www.vudu.mx/privacypolicy.html' target='_blank'>Pol&iacute;ticas de Privacidad</a>"
     header:
       app_name: 'Vudutrivia'
 
