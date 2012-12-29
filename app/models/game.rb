@@ -5,6 +5,8 @@ class Game < ActiveRecord::Base
   has_many :questions, through: :assignments
   belongs_to :user
 
+  serialize :answered_right, Array
+
   def answer_question(question, answer)
     success = false
     if question.answered_right? answer
@@ -12,6 +14,7 @@ class Game < ActiveRecord::Base
       self.earned_points += question.points_to_earn
       self.user.points += question.points_to_earn
       self.user.save
+      self.answered_right << question.id
       success = true
     end
     success

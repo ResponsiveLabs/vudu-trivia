@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224222607) do
+ActiveRecord::Schema.define(:version => 20121228033138) do
 
   create_table "assignments", :force => true do |t|
     t.integer "game_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121224222607) do
     t.datetime "updated_at",                            :null => false
     t.integer  "current_question_index", :default => 0
     t.integer  "user_id"
+    t.text     "answered_right"
   end
 
   create_table "questions", :force => true do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121224222607) do
     t.string   "image1"
     t.string   "image2"
     t.string   "image3"
+    t.string   "title_cover"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
