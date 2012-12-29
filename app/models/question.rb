@@ -7,10 +7,12 @@ class Question < ActiveRecord::Base
   mount_uploader :image1, ImageUploader
   mount_uploader :image2, ImageUploader
   mount_uploader :image3, ImageUploader
+  mount_uploader :title_cover, ImageUploader
 
   attr_accessible :image1, :image1_cache, :remove_image1
   attr_accessible :image2, :image2_cache, :remove_image2
   attr_accessible :image3, :image3_cache, :remove_image3
+  attr_accessible :title_cover, :title_cover_cache, :remove_title_cover
 
   def answers
     possible_answers.split(',').map(&:strip)

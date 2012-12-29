@@ -1,13 +1,13 @@
 <div class="content">
-  
+
   <%= render partial: "shared/header" %>
-  
+
   <section class="dashboard">
 
   </section>
 
   <h3 class="game-results"><%=t '.results' %></h3>
-  
+
   <ul class="stats">
     <li>
       <p><%= t('.correct_answers') %></p>
@@ -33,27 +33,29 @@
     <li><img src="http://placehold.it/40x40" /></li>
     <li><img src="http://placehold.it/40x40" /></li>
   </ul>
-  
+
   <hr />
 
 
   <h3 class="vudu-link"><%=t '.movies_message_html' %></h3>
-  
+
 
   <ul class="latest-movies">
-    <li>
-      <span class="frame"><img src="http://placehold.it/200x160" /></span>
-      <h5>Película 1</h5>
-      <p><a href='http://www.vudu.mx' target='_blank'>Pelicula en Vudu.mx</a></p>
-    </li>
-    
-    <li>
-      <span class="frame"><img src="http://placehold.it/200x160" /></span>
-      <h5>Película 2</h5>
-      <p><a href='http://www.vudu.mx' target='_blank'>Pelicula en Vudu.mx</a></p>
-    </li>
+    <% some_movies_answered_right(4).each do |movie| %>
+      <li>
+        <span class="frame"><img src=<%= movie.cover %> /></span>
+        <h5><%= movie.title %></h5>
+        <p><%= t '.movies_link_html', :url => movie.vudu_url %></p>
+      </li>
+    <% end %>
   </ul>
-  
+
+  <section class="play">
+    <%= form_for(Game.new) do |f| %>
+      <%= f.submit t('.play_again'), class: "large button" %>
+    <% end %>
+  </section>
+
   <%= render partial: "shared/footer" %>
 
 </div>
