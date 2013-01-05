@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     User.all(:order => "points").index(self)
   end
 
+  def self.top(number)
+    User.all(:order => "points DESC", :conditions => 'facebook_id IS NOT NULL', :limit => number)
+  end
+
 end
