@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   def rank
     # TODO: look for a better alternative
-    User.all(:order => "points").index(self)
+    User.all(:order => "points DESC").index(self) + 1
   end
 
   def self.top(number)
