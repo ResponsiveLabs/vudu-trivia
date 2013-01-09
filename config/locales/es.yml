@@ -55,7 +55,7 @@ es:
       earned_points: 'Puntos ganados'
       end_message: 'Juego Terminado'
       movies_link_html: "<a href='%{url}' target='_blank'>Película en Vudu.mx</a>"
-      movies_message_html: "Las películas de tu juego en <a href='http://www.vudu.mx' target='_blank'>Vudu.mx</a>"
+      movies_message_html: "Renta las películas de tu juego en <a href='http://www.vudu.mx' target='_blank'>VUDU</a>"
       play_again: 'Jugar de nuevo'
       promotions: 'Ver más promociones'
       ranked_at: 'Estás en el lugar'
