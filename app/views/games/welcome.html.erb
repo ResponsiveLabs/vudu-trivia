@@ -12,7 +12,9 @@
         <%= f.submit t('.play'), class: "large button" %>
       <% end %>
     <% else %>
-      <a href='/auth/facebook' class="fb_button fb_button_large"><span class="fb_button_text"><%= t('.login') %></span></a>
+      <%= form_tag('/auth/facebook', :method => 'get') do %>
+        <%= submit_tag t('.play'), class: "large button" %>
+      <% end %>
     <% end %>
   </section>
 
