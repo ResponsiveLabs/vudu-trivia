@@ -29,8 +29,13 @@
     <a class="button" href="#"><%=t '.invite' %></a>
   </section>
 
-  <section class="add-600x180">Publicidad</section>
-  
+  <% banner = Banner.availableBanner %>
+  <% if banner %>
+    <section class="add-600x180"><img src='<%= banner.image_url %>' /></section>
+  <% else %>
+    <section class="add-600x180">Publicidad</section>
+  <% end %>
+
   <%= render partial: "shared/footer" %>
 
 </div>
