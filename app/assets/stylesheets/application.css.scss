@@ -430,13 +430,16 @@ ul.stats {
 
 ul.top-five {
   display: block;
-  width: 400px;
+  width: 500px;
   height: 81px;
   margin: 0 auto;
   
   li {
     float: left;
     margin-right: 20px;
+    .points {
+      font-size: 1.2em;
+    }
   }
   
   li.title {

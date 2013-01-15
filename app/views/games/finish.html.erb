@@ -28,7 +28,10 @@
   <ul class="top-five">
     <li class="title">Top 5:</li>
     <% User.top(5).each do |user| %>
-      <li><img src="https://graph.facebook.com/<%= user['facebook_id'] %>/picture" /></li>
+      <li>
+        <img src="https://graph.facebook.com/<%= user['facebook_id'] %>/picture" />
+        <p class="points"><%= user.points %></p>
+      </li>
     <% end %>
   </ul>
 
