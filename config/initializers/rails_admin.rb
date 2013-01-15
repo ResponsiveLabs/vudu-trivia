@@ -126,6 +126,7 @@ RailsAdmin.config do |config|
       configure :started_at do hide end
       configure :created_at do hide end
       configure :updated_at do hide end
+      configure :games do hide end
     end
 
     object_label_method :title
