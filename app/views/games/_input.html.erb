@@ -1,5 +1,11 @@
 <div class="question"><h3 id='question-title'><%= t('.question') %></h3></div>
 
+<ul class="tags">
+  <% @question.tag_list.each do |t| %>
+    <li class="radius label tag"><%= t %></li>
+  <% end %>
+</ul>
+
 <div class="answer-field">
   <%= form_tag(answer_path(@game.id, @question.id), method: :put) do %>
     <%= text_field_tag :answer, nil, placeholder: t('.placeholder'), class: 'answer' %>
