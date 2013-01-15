@@ -122,6 +122,21 @@ ul.thumbnails {
   margin: 0 0 40px 0;
 }
 
+ul.tags {
+  display: block;
+  width: 600px;
+  height: 81px;
+  margin: 0 auto;
+  li {
+    float: left;
+    margin-right: 20px;
+  }
+  .tag {
+    background-color: #333333;
+    padding: 4px;
+  }
+}
+
 .answer-field {
   width: 700px;
   margin: 0 auto 100px;

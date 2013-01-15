@@ -50,7 +50,16 @@ RailsAdmin.config do |config|
   # Now you probably need to tour the wiki a bit: https://github.com/sferik/rails_admin/wiki
   # Anyway, here is how RailsAdmin saw your application's models when you ran the initializer:
 
-
+  # rails_admin_tag_list
+  # This gem comes with two tag field partial's named form_tag_list (default) and tag_list_with_suggestions
+  # https://github.com/kryzhovnik/rails_admin_tag_list
+  config.models do
+    edit do
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
+      end
+    end
+  end
 
   ###  Game  ###
 
