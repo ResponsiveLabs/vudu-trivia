@@ -4,6 +4,10 @@ class Question < ActiveRecord::Base
   has_many :assignments
   has_many :games, through: :assignments
 
+  attr_accessible :tag_list
+  # Alias for acts_as_taggable_on :tags
+  acts_as_taggable
+
   mount_uploader :image1, ImageUploader
   mount_uploader :image2, ImageUploader
   mount_uploader :image3, ImageUploader
