@@ -37,16 +37,11 @@ class ApplicationController < ActionController::Base
 
   def facebook_auth_callback
     session[:access_token] = authenticator.get_access_token(params[:code])
-    if ENV['RACK_ENV'] == 'production'
-      # Hack to avoid moving out of facebook
-      load_facebook_user
-      render 'games/welcome'
-    else
-      redirect_to root_path
-    end
+    redirect_to root_path
   end
 
   def handle_oauth_error(error)
+    # TODO notify user, remove redirect loop
     facebook_auth
   end
 
