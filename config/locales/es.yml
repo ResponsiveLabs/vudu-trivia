@@ -64,6 +64,7 @@ es:
       friends_playing: 'Tienes %{count} amigos jugando'
       invite: 'Invitar'
       login: 'Iniciar sesión'
+      oauth_error: 'Para poder jugar necesitas autorizar la aplicación Vudu Trivia'
       play: 'Jugar'
       slogan: 'El juego para los amantes del cine'
       teaser_message: 'Conoce los premios y promociones que Vudu.mx tiene para tí:'

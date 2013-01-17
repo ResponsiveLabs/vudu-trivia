@@ -46,8 +46,12 @@ class ApplicationController < ActionController::Base
   end
 
   def handle_oauth_error(error)
-    # TODO notify user, remove redirect loop
-    facebook_auth
+    flash[:error] = t('games.welcome.oauth_error')
+    if ENV['RACK_ENV'] == 'production'
+      redirect_to ENV['FACEBOOK_APP_HOST']
+    else
+      redirect_to root_path
+    end
   end
 
   # Allows for javascript authentication

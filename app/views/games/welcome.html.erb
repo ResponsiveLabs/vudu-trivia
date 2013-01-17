@@ -1,5 +1,8 @@
 <div class="welcome-content">
-  
+  <% if flash[:error] %>
+    <div class="alert-box alert"><%= flash[:error] %></div>
+  <% end %>
+
   <%= render partial: "shared/welcome_header" %>
 
   <div class="main-logo"></div>
@@ -19,14 +22,15 @@
   </section>
 
   <section class="friends">
-    <h3><%=t '.friends_playing', :count => @friends_using_app.size %></h3>
-  
-    <ul>
-    <% some_friends_using_app(5).each do |friend_result| %>
-      <li><img src='<%= friend_result['pic_square'] %>' alt='<%= friend_result['name'] %>' /></li>
+    <% unless @friends_using_app.nil? %>
+      <h3><%=t '.friends_playing', :count => @friends_using_app.size %></h3>
+      <ul>
+      <% some_friends_using_app(5).each do |friend_result| %>
+        <li><img src='<%= friend_result['pic_square'] %>' alt='<%= friend_result['name'] %>' /></li>
+      <% end %>
+      </ul>
+      <a class="button" href="#"><%=t '.invite' %></a>
     <% end %>
-    </ul>
-    <a class="button" href="#"><%=t '.invite' %></a>
   </section>
 
   <% banner = Banner.availableBanner %>
