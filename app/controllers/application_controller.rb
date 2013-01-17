@@ -37,7 +37,12 @@ class ApplicationController < ActionController::Base
 
   def facebook_auth_callback
     session[:access_token] = authenticator.get_access_token(params[:code])
-    redirect_to root_path
+    if ENV['RACK_ENV'] == 'production'
+      # Go back to the facebook canvas
+      redirect_to ENV['FACEBOOK_APP_HOST']
+    else
+      redirect_to root_path
+    end
   end
 
   def handle_oauth_error(error)
