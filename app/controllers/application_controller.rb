@@ -32,11 +32,17 @@ class ApplicationController < ActionController::Base
 
   def facebook_auth
     session[:access_token] = nil
+    puts "\n\n"
+    puts "facebook_auth"
+    puts "\n\n"
     redirect_to authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
   end
 
   def facebook_auth_callback
     session[:access_token] = authenticator.get_access_token(params[:code])
+    puts "\n\n"
+    puts "facebook_auth_callback"
+    puts "\n\n"
     if ENV['RACK_ENV'] == 'production'
       # Go back to the facebook canvas
       redirect_to ENV['FACEBOOK_APP_HOST']
@@ -46,17 +52,29 @@ class ApplicationController < ActionController::Base
   end
 
   def handle_oauth_error(error)
+    puts "\n\n"
+    puts "handle_oauth_error"
+    puts "error = #{error}"
+    puts "\n\n"
+=begin
+type: OAuthException, code: 190, error_subcode: 458, message: Error validating access token: User 506232400 has not authorized application 322243531223568.
+type: OAuthException, code: 100, message: Invalid verification code format. [HTTP 400]
+=end
+
     flash[:error] = t('games.welcome.oauth_error')
     if ENV['RACK_ENV'] == 'production'
-      redirect_to ENV['FACEBOOK_APP_HOST']
+      render "games/welcome"
     else
-      redirect_to root_path
+      render "games/welcome"
     end
   end
 
   # Allows for javascript authentication
 
   def access_token_from_cookie
+    puts "\n\n"
+    puts "access_token_from_cookie"
+    puts "\n\n"
     user_info = authenticator.get_user_info_from_cookies(request.cookies)
     user_info['access_token'] if user_info
   end
