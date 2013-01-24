@@ -15,9 +15,9 @@
         <%= f.submit t('.play'), class: "large button" %>
       <% end %>
     <% else %>
-      <%= form_tag('/auth/facebook', :method => 'get') do %>
+      <%= form_tag '#', id: 'login'  do -%>
         <%= submit_tag t('.play'), class: "large button" %>
-      <% end %>
+      <% end -%>
     <% end %>
   </section>
 

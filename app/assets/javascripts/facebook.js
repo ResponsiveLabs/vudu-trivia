@@ -2,9 +2,9 @@
 
 $(function() {
 
-  $("#login").click(function(e) {
-    e.preventDefault();
+  $("#login").submit(function(e) {
     FB.login(function(response) {}, {scope: 'email,user_likes'});
+    return false;
   });
 
 });
