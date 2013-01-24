@@ -42,6 +42,7 @@ group :development do
   gem "binding_of_caller"
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
+  gem 'debugger'
 end
 
 group :test do
@@ -63,7 +64,4 @@ end
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 

@@ -75,4 +75,9 @@ es:
       privacy_html: "<a href='http://www.vudu.mx/privacypolicy.html' target='_blank'>Pol&iacute;ticas de Privacidad</a>"
     header:
       app_name: 'Vudutrivia'
+  facebook:
+    errors:
+      expired: 'La sesión caducó, por favor ingrese de nuevo'
+      invalid: 'La sesión fue invalidada, ingresa de nuevo'
+      unauthorized: 'Para poder jugar necesitas autorizar la aplicación Vudu Trivia'
 
