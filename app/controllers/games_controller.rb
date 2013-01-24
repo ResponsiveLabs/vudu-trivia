@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
+    # TODO: should abort game creation if user is not logged in
     @game = Game.new(params[:game])
 
     @game.current_question_index = 0
