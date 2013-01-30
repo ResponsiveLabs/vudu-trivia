@@ -24,4 +24,9 @@ class Game < ActiveRecord::Base
     current_question_index >= questions.size
   end
 
+  def self.select_questions(amount)
+    # Question.find(:all, :conditions => ["id NOT IN (?)", user.watched_questions_ids]).limit(amount)
+    Question.all.shuffle[0..amount-1]
+  end
+
 end

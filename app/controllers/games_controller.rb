@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
 
     @game.current_question_index = 0
-    @game.questions = Question.all.shuffle[0..9]
+    @game.questions = Game.select_questions(10)
 
     @user = User.find_user_with_facebook_graph(@me)
     unless @user.save
