@@ -35,4 +35,13 @@ class User < ActiveRecord::Base
     User.all(:order => "points DESC", :conditions => 'facebook_id IS NOT NULL', :limit => number)
   end
 
+  def watched_questions_ids
+    unique_ids = []
+    self.games.each do |game|
+      current_ids = game.questions.collect { |question| question.id }
+      unique_ids = unique_ids | current_ids
+    end
+    unique_ids
+  end
+
 end
