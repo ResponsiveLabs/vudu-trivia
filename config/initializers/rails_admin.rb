@@ -7,7 +7,7 @@ RailsAdmin.config do |config|
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
-  config.main_app_name = ['Vudu Trivia Staging', 'Admin']
+  config.main_app_name = ['Vudu Trivia', 'Admin']
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -27,7 +27,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ['Assignment']
+  config.excluded_models = ['Assignment', 'Attempt']
 
   # Include specific models (exclude the others):
   # config.included_models = ['Assignment', 'Game', 'Question']
@@ -111,6 +111,7 @@ RailsAdmin.config do |config|
   config.model 'Question' do
 
     configure :games, :has_many_association do hide end
+    configure :users, :has_many_association do hide end
 
     list do
       field :id
@@ -127,6 +128,7 @@ RailsAdmin.config do |config|
       configure :created_at do hide end
       configure :updated_at do hide end
       configure :games do hide end
+      configure :users do hide end
     end
 
     object_label_method :title
