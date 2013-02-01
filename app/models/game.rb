@@ -24,9 +24,22 @@ class Game < ActiveRecord::Base
     current_question_index >= questions.size
   end
 
-  def self.select_questions(amount)
-    # Question.find(:all, :conditions => ["id NOT IN (?)", user.watched_questions_ids]).limit(amount)
-    Question.all.shuffle[0..amount-1]
+  def self.select_questions_for_user(amount, user)
+    # Find new questions
+    attempted_questions_ids = Attempt.where(user_id: user.id).map { |a| a.question_id }
+    new_questions = Question.find(:all, :conditions => ["id NOT IN (?)", attempted_questions_ids])
+    questions = new_questions.shuffle[0...amount]
+
+    # If there's not enough unseen questions, fill the array with old questions. Then reset history.
+    remaining = amount - questions.size
+    if remaining > 0
+      oldest_attempts = attempted_questions_ids[0...remaining]
+      old_questions = Question.find(:all, :conditions => ["id IN (?)", oldest_attempts])
+      questions = questions | old_questions
+      Attempt.delete_all(user_id: user.id)
+    end
+
+    questions
   end
 
 end

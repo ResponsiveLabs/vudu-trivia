@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :points
 
   has_many :games
+  has_many :attempts
+  has_many :questions, through: :attempts
 
   def self.initialize_from_facebook_graph(me)
     return nil if me.nil? || me['id'].blank?
@@ -42,6 +44,10 @@ class User < ActiveRecord::Base
       unique_ids = unique_ids | current_ids
     end
     unique_ids
+  end
+
+  def save_question_in_history(question)
+    Attempt.where(user_id: self.id, question_id: question.id).first_or_create
   end
 
 end

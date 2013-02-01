@@ -10,6 +10,8 @@ class Question < ActiveRecord::Base
 
   has_many :assignments
   has_many :games, through: :assignments
+  has_many :attempts
+  has_many :users, through: :attempts
 
   attr_accessible :tag_list
   # Alias for acts_as_taggable_on :tags

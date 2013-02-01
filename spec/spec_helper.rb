@@ -70,7 +70,7 @@ Spork.prefork do
     config.include FactoryGirl::Syntax::Methods
   end
 
-  load "#{Rails.root}/db/seeds.rb"
+  # load "#{Rails.root}/db/seeds.rb"
 end
 
 Spork.each_run do
