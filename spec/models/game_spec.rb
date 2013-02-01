@@ -60,4 +60,9 @@ describe "Game" do
     Attempt.where(user_id: @user.id).size.should == 0
   end
 
+  it "returns all questions when attempts are empty" do
+    questions = Game.select_questions_for_user(4, @user)
+    questions.size.should == 4
+  end
+
 end

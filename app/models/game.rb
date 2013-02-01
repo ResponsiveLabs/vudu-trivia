@@ -25,8 +25,11 @@ class Game < ActiveRecord::Base
   end
 
   def self.select_questions_for_user(amount, user)
-    # Find new questions
+    # Find questions already seen
     attempted_questions_ids = Attempt.where(user_id: user.id).map { |a| a.question_id }
+    # Fix query bug
+    attempted_questions_ids = [-31337] if attempted_questions_ids.empty?
+    # Find new questions
     new_questions = Question.find(:all, :conditions => ["id NOT IN (?)", attempted_questions_ids])
     questions = new_questions.shuffle[0...amount]
 
