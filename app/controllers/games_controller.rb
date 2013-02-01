@@ -6,18 +6,16 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    # TODO: should abort game creation if user is not logged in
-    @game = Game.new(params[:game])
-
-    @game.current_question_index = 0
-    @game.questions = Question.all.shuffle[0..9]
-
     @user = User.find_user_with_facebook_graph(@me)
+    # TODO: should abort game creation if user is not logged in
     unless @user.save
       format.html { render action: "welcome", notice: @user.errors }
       return false
     end
 
+    @game = Game.new(params[:game])
+    @game.current_question_index = 0
+    @game.questions = Game.select_questions_for_user(10, @user)
     @game.user = @user
 
     respond_to do |format|
@@ -50,8 +48,10 @@ class GamesController < ApplicationController
   def render_question
     @index = @game.current_question_index
     @question = @game.questions[@index]
+    @user = User.where(facebook_id: @me['id']).first
 
     if @index < @game.questions.size
+      @user.save_question_in_history(@question)
       render 'question'
     else
       redirect_to finish_url(@game), :status => :found
