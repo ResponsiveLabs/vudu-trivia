@@ -111,6 +111,7 @@ RailsAdmin.config do |config|
   config.model 'Question' do
 
     configure :games, :has_many_association do hide end
+    configure :users, :has_many_association do hide end
 
     list do
       field :id
@@ -127,6 +128,7 @@ RailsAdmin.config do |config|
       configure :created_at do hide end
       configure :updated_at do hide end
       configure :games do hide end
+      configure :users do hide end
     end
 
     object_label_method :title
