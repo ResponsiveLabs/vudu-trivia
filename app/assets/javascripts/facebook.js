@@ -16,5 +16,15 @@ $(function() {
     return false;
   });
 
+  $("#invite").click(function(e) {
+    e.preventDefault();
+    FB.ui({
+      method: 'apprequests',
+      message: 'Juega la trivia Vudu'
+    }, function(response) {
+      // response = {request: "124417591066001", to: [504257371, 1000004486669060]}
+    });
+  });
+
 });
 
