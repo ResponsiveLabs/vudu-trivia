@@ -6,18 +6,16 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    # TODO: should abort game creation if user is not logged in
-    @game = Game.new(params[:game])
-
-    @game.current_question_index = 0
-    @game.questions = Game.select_questions(10)
-
     @user = User.find_user_with_facebook_graph(@me)
+    # TODO: should abort game creation if user is not logged in
     unless @user.save
       format.html { render action: "welcome", notice: @user.errors }
       return false
     end
 
+    @game = Game.new(params[:game])
+    @game.current_question_index = 0
+    @game.questions = Game.select_questions(10)
     @game.user = @user
 
     respond_to do |format|
