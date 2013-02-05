@@ -43,23 +43,23 @@ module Merit
       # Acción
 
       grant_on 'games#finish', :badge => 'arnold', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Acción') == 3
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 3
       end
 
       grant_on 'games#finish', :badge => 'vandamme', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Acción') == 5
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 5
       end
 
       grant_on 'games#finish', :badge => 'tom', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Acción') == 8
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 8
       end
 
       grant_on 'games#finish', :badge => 'milla', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Acción') == 9
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 9
       end
 
       grant_on 'games#finish', :badge => 'rock', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Acción') == 10
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 10
       end
 
       # Terror

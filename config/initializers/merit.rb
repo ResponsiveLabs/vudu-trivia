@@ -20,31 +20,31 @@ end
 Badge.create({
   :id => 20,
   :name => 'arnold',
-  :description => 'Arnold Schwarzenegger. Contestaste 3 de acción.'
+  :description => 'Arnold Schwarzenegger. Contestaste 3 de accion.'
 })
 
 Badge.create({
   :id => 21,
   :name => 'vandamme',
-  :description => 'Jean Claude Van Damme. Contestaste 5 de acción.'
+  :description => 'Jean Claude Van Damme. Contestaste 5 de accion.'
 })
 
 Badge.create({
   :id => 22,
   :name => 'tom',
-  :description => 'Tom Cruise. Contestaste 8 de acción.'
+  :description => 'Tom Cruise. Contestaste 8 de accion.'
 })
 
 Badge.create({
   :id => 23,
   :name => 'milla',
-  :description => 'Milla Jovovich. Contestaste 9 de acción.'
+  :description => 'Milla Jovovich. Contestaste 9 de accion.'
 })
 
 Badge.create({
   :id => 24,
   :name => 'rock',
-  :description => 'The Rock. Contestaste 10 de acción.'
+  :description => 'The Rock. Contestaste 10 de accion.'
 })
 
 # Terror
