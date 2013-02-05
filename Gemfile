@@ -37,6 +37,8 @@ gem "fog", "~> 1.3.1"
 gem 'acts-as-taggable-on'
 gem 'rails_admin_tag_list'
 
+gem 'merit'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
