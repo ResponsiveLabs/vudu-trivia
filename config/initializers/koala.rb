@@ -9,6 +9,8 @@ end
 
 Koala::Facebook::OAuth.class_eval do
   def initialize_with_default_settings(*args)
+    return if ENV["RAILS_ENV"] == "test"
+
     case args.size
       when 0, 1
         raise "application id and/or secret are not specified in the config" unless Facebook::APP_ID && Facebook::SECRET
