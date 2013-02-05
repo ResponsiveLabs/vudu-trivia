@@ -14,7 +14,100 @@ Merit.setup do |config|
 end
 
 # Create application badges (uses https://github.com/norman/ambry)
-# Badge.create!({
-#   :id => 1,
-#   :name => 'just-registered'
-# })
+
+# Acción
+
+Badge.create({
+  :id => 20,
+  :name => 'arnold',
+  :description => 'Arnold Schwarzenegger. Contestaste 3 de acción.'
+})
+
+Badge.create({
+  :id => 21,
+  :name => 'vandamme',
+  :description => 'Jean Claude Van Damme. Contestaste 5 de acción.'
+})
+
+Badge.create({
+  :id => 22,
+  :name => 'tom',
+  :description => 'Tom Cruise. Contestaste 8 de acción.'
+})
+
+Badge.create({
+  :id => 23,
+  :name => 'milla',
+  :description => 'Milla Jovovich. Contestaste 9 de acción.'
+})
+
+Badge.create({
+  :id => 24,
+  :name => 'rock',
+  :description => 'The Rock. Contestaste 10 de acción.'
+})
+
+# Terror
+
+Badge.create({
+  :id => 30,
+  :name => 'chucky',
+  :description => 'Chucky. Contestaste 5 de terror.'
+})
+
+Badge.create({
+  :id => 31,
+  :name => 'myers',
+  :description => 'Michael Myers. Contestaste 7 de terror.'
+})
+
+Badge.create({
+  :id => 32,
+  :name => 'jason',
+  :description => 'Jason Voorhees. Contestaste 8 de terror.'
+})
+
+Badge.create({
+  :id => 33,
+  :name => 'freddy',
+  :description => 'Freddy Krueger. Contestaste 9 de terror.'
+})
+
+Badge.create({
+  :id => 34,
+  :name => 'eso',
+  :description => 'Eso. Contestaste 15 de terror.'
+})
+
+# Comedia
+
+Badge.create({
+  :id => 40,
+  :name => 'jim',
+  :description => 'Jim Carey. Contestaste 4 de comedia.'
+})
+
+Badge.create({
+  :id => 41,
+  :name => 'chan',
+  :description => 'Jackie Chan. Contestaste 7 de comedia.'
+})
+
+Badge.create({
+  :id => 42,
+  :name => 'murphy',
+  :description => 'Eddie Murphy. Contestaste 8 de comedia.'
+})
+
+Badge.create({
+  :id => 43,
+  :name => 'stiller',
+  :description => 'Ben Stiller. Contestaste 9 de comedia.'
+})
+
+Badge.create({
+  :id => 44,
+  :name => 'chaplin',
+  :description => 'Charles Chaplin. Contestaste 15 de comedia.'
+})
+

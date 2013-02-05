@@ -18,7 +18,11 @@ describe GamesController do
       @game_of_terror.id = 40000
       @game_of_terror.answered_right = @questions.collect(&:id).flatten
       @leet_user.games << @game_of_terror
+
+      @leet_user.number_of_questions_answered_right_and_tagged_as('Terror') == 5
       get :finish, id: @game_of_terror.id
+      @leet_user.badges.should_not be_empty
+      @leet_user.badges.should == ['Terror']
     end
   end
 
