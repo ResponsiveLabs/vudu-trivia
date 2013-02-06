@@ -1,0 +1,19 @@
+<div class="content">
+
+  <%= render partial: "shared/header" %>
+
+  <section class="dashboard">
+  </section>
+
+  <h3 class="game-results">Badges</h3>
+
+  <ul class="latest-movies">
+    <% @user.badges.each do |badge| %>
+      <li>
+        <span class="frame"><img src=<%= badge.image %> /></span>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
+
