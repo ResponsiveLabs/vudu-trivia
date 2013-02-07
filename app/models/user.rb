@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_merit
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :registerable,
   # :lockable, :timeoutable and :omniauthable
@@ -48,6 +50,19 @@ class User < ActiveRecord::Base
 
   def save_question_in_history(question)
     Attempt.where(user_id: self.id, question_id: question.id).first_or_create
+  end
+
+  def question_ids_answered_right
+    self.games.collect(&:answered_right).flatten.uniq
+  end
+
+  def questions_answered_right
+    Question.find(:all, :conditions => ["id IN (?)", self.question_ids_answered_right])
+  end
+
+  def number_of_questions_answered_right_and_tagged_as(tag)
+    questions = self.questions_answered_right
+    questions.select { |q| q.tag_list.member? tag }.size
   end
 
 end
