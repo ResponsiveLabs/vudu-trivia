@@ -13,6 +13,8 @@ VuduTriviaStaging::Application.routes.draw do
 
   get 'games/:id/finish', to: 'games#finish', as: :finish
 
+  get 'users/:id', to: 'users#show', as: :user
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
