@@ -360,7 +360,7 @@ section.friends {
   }
 }
 
-.game-results {
+.game-results, .badges-title {
   color: $dark-orange;
   font-size: 30px;
   @include helvetica-bold;
@@ -468,6 +468,21 @@ h3.vudu-link {
     &:hover {
      background: none; 
     }
+  }
+}
+
+ul.badges {
+  display: block;
+  overflow: hidden;
+  width: 660px;
+  margin: 0 auto;
+
+  li {
+    float: left;
+    height: 202px;
+    width: 165px;
+    padding: 10px;
+    margin-right: 12px;
   }
 }
 

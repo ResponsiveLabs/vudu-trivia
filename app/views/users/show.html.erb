@@ -5,12 +5,12 @@
   <section class="dashboard">
   </section>
 
-  <h3 class="game-results">Badges</h3>
+  <h3 class="badges-title">Badges</h3>
 
-  <ul class="latest-movies">
+  <ul class="badges">
     <% @user.badges.each do |badge| %>
       <li>
-        <span class="frame"><img src=<%= badge.image %> /></span>
+        <img alt='<%= badge.description %>' src='<%= badge.image.url %>' />
       </li>
     <% end %>
   </ul>
