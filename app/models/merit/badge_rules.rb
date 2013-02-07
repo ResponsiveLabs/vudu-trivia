@@ -43,67 +43,67 @@ module Merit
       # Acción
 
       grant_on 'games#finish', :badge => 'arnold', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 3
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') >= 3
       end
 
       grant_on 'games#finish', :badge => 'vandamme', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 5
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') >= 5
       end
 
       grant_on 'games#finish', :badge => 'tom', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 8
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') >= 8
       end
 
       grant_on 'games#finish', :badge => 'milla', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 9
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') >= 9
       end
 
       grant_on 'games#finish', :badge => 'rock', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Accion') == 10
+        game.user.number_of_questions_answered_right_and_tagged_as('Accion') >= 10
       end
 
       # Terror
 
       grant_on 'games#finish', :badge => 'chucky', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Terror') == 5
+        game.user.number_of_questions_answered_right_and_tagged_as('Terror') >= 5
       end
 
       grant_on 'games#finish', :badge => 'myers', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Terror') == 7
+        game.user.number_of_questions_answered_right_and_tagged_as('Terror') >= 7
       end
 
       grant_on 'games#finish', :badge => 'jason', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Terror') == 8
+        game.user.number_of_questions_answered_right_and_tagged_as('Terror') >= 8
       end
 
       grant_on 'games#finish', :badge => 'freddy', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Terror') == 9
+        game.user.number_of_questions_answered_right_and_tagged_as('Terror') >= 9
       end
 
       grant_on 'games#finish', :badge => 'eso', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Terror') == 15
+        game.user.number_of_questions_answered_right_and_tagged_as('Terror') >= 15
       end
 
       # Comedia
 
       grant_on 'games#finish', :badge => 'jim', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') == 4
+        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') >= 4
       end
 
       grant_on 'games#finish', :badge => 'chan', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') == 7
+        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') >= 7
       end
 
       grant_on 'games#finish', :badge => 'murphy', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') == 8
+        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') >= 8
       end
 
       grant_on 'games#finish', :badge => 'stiller', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') == 9
+        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') >= 9
       end
 
       grant_on 'games#finish', :badge => 'chaplin', :to => :user do |game|
-        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') == 15
+        game.user.number_of_questions_answered_right_and_tagged_as('Comedia') >= 15
       end
 
     end
