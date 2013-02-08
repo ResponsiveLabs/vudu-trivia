@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207042508) do
+ActiveRecord::Schema.define(:version => 20130208042829) do
 
   create_table "assignments", :force => true do |t|
     t.integer "game_id"
@@ -58,11 +58,8 @@ ActiveRecord::Schema.define(:version => 20130207042508) do
   end
 
   create_table "medals", :force => true do |t|
-    t.string   "title"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string "title"
+    t.string "image"
   end
 
   create_table "merit_actions", :force => true do |t|

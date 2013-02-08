@@ -38,7 +38,6 @@ gem 'acts-as-taggable-on'
 gem 'rails_admin_tag_list'
 
 gem 'merit'
-gem 'paperclip', '~> 3.0'
 
 group :development do
   gem "better_errors"
