@@ -81,7 +81,7 @@ badges = [
 badges.each_with_index do |badge, i|
   Badge.create({
     id: i + 1,
-    # image: Medal.find_by_title(badge[:name]).image,
+    image: Medal.find_by_title(badge[:name]).image_url,
     name: badge[:name],
     description: badge[:description]
   })

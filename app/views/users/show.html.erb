@@ -10,7 +10,7 @@
   <ul class="badges">
     <% @user.badges.each do |badge| %>
       <li>
-        <img alt='<%= badge.description %>' src='<%= badge.image.url %>' />
+        <img alt='<%= badge.description %>' src='<%= badge.image %>' />
       </li>
     <% end %>
   </ul>
