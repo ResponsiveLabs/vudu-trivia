@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+      has_many :points  
+      has_many :badges , :through => :levels 
+      has_many :levels  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :registerable,
   # :lockable, :timeoutable and :omniauthable
