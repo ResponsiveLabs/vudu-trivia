@@ -5,15 +5,20 @@
   <section class="dashboard">
   </section>
 
-  <h3 class="badges-title">Badges</h3>
+  <h3 class="badges-title">Medallas</h3>
 
-  <ul class="badges">
-    <% @user.badges.each do |badge| %>
-      <li>
-        <img alt='<%= badge.description %>' src='<%= badge.image %>' />
-      </li>
-    <% end %>
-  </ul>
+  <% badges = @user.badges %>
+  <% if badges.empty? %>
+    <h4 class="badges-slogan">Sigue jugando para acumular puntos y ganar medallas</h4>
+  <% else %>
+    <ul class="badges">
+      <% badges.each do |badge| %>
+        <li>
+          <img alt='<%= badge.description %>' src='<%= badge.image %>' />
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 </div>
 

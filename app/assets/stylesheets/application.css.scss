@@ -294,7 +294,7 @@ section.dashboard {
   background: image-url("logo-large.png") 0 0 no-repeat;
 }
 
-h2.main-slogan {
+h2.main-slogan, h4.badges-slogan {
   margin: 20px 0 10px 0;
   @include helvetica-light;
   text-align: center;
