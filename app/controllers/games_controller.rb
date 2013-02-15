@@ -3,6 +3,10 @@ class GamesController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
 
+  def welcome
+    @user = User.find_user_with_facebook_graph(@me) if @me
+  end
+
   # POST /games
   # POST /games.json
   def create
