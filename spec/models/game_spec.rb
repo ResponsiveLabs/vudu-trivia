@@ -65,4 +65,34 @@ describe "Game" do
     questions.size.should == 4
   end
 
+  describe "when finished" do
+    before(:all) do
+      @current_user = User.create(email: "foo@foo.bar", password: "foobar")
+
+      # Destroy all badges and assignments
+      Badge.keys.each { |b| Badge.find(b).delete }
+      BadgesSash.destroy_all
+
+      # Assign the only badge to the current user
+      @some_badge = create(:badge)
+      @current_user.add_badge(@some_badge.id)
+
+      # Game over
+      @finished_game = Game.new
+      # Game was created 10 seconds before the badge assignment
+      @finished_game.created_at = BadgesSash.last.created_at - 10
+      @finished_game.user = @current_user
+      @finished_game.save
+    end
+
+    it "should give the user a badge" do
+      merits = BadgesSash.where(sash_id: @current_user.sash_id)
+      merits.should_not be_empty
+    end
+
+    it "returns badges ids earned by the user" do
+      @finished_game.badges_ids_earned_by_user.should == [@some_badge.id]
+    end
+  end
+
 end

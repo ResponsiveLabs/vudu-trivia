@@ -23,6 +23,15 @@
     </li>
   </ul>
 
+  <% unless @game.badges_earned.empty? %>
+    <ul class="badges bordered">
+      <p><%= t('.earned_badges') %></p>
+      <% @game.badges_earned.each do |b| %>
+        <li><%= image_tag b.image, alt: b.description %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="rank"><span><%=t '.ranked_at' %></span> <b>#<%= @user.rank %></b></div>
 
   <ul class="top-five">
