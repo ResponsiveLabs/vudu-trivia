@@ -10,5 +10,10 @@ FactoryGirl.define do
     email "rod@foobar.com"
   end
 
+  factory :badge do
+    sequence(:id) { |n| n + 100 }
+    name "foobar"
+  end
+
 end
 
