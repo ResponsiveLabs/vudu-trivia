@@ -45,4 +45,12 @@ class Game < ActiveRecord::Base
     questions
   end
 
+  def badges_ids_earned_by_user
+    BadgesSash.where("sash_id = ? AND created_at > ?", self.user.sash_id, self.created_at).map(&:badge_id)
+  end
+
+  def badges_earned
+    badges_ids_earned_by_user.collect { |id| Badge.find(id) }
+  end
+
 end

@@ -471,18 +471,29 @@ h3.vudu-link {
   }
 }
 
+.bordered {
+  @include border-radius(10px, 10px);
+  @include background-image(linear-gradient(lighten($black, 30%), $black));
+}
+
 ul.badges {
   display: block;
   overflow: hidden;
   width: 660px;
-  margin: 0 auto;
+  margin: 10px auto 40px auto;
+  padding: 10px;
 
   li {
     float: left;
     height: 202px;
     width: 165px;
-    padding: 10px;
-    margin-right: 12px;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+    @include helvetica;
   }
 }
 
