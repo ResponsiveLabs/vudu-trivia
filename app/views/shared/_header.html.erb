@@ -14,7 +14,8 @@
 
   <% if @me %>
     <div class="profile">
-      <% path = @user ? user_path(@user.id) : '#' %>
+      <% uid = @user.id unless @user.nil? %>
+      <% path = uid ? user_path(uid) : '#' %>
       <%= link_to path do %>
         <span><%= @me['name'] %></span>
       <% end %>
