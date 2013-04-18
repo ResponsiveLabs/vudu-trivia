@@ -13,7 +13,9 @@ class GamesController < ApplicationController
     @user = User.find_user_with_facebook_graph(@me)
     # TODO: should abort game creation if user is not logged in
     unless @user.save
-      format.html { render action: "welcome", notice: @user.errors }
+      respond_to do |format|
+        format.html { render action: "welcome", notice: @user.errors }
+      end
       return false
     end
 
