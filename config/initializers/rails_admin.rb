@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'rails_admin_reset_point.rb')
+
 # RailsAdmin config file. Generated on November 25, 2012 15:37
 # See github.com/sferik/rails_admin for more informations
 
@@ -27,7 +29,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ['Assignment', 'Attempt']
+  config.excluded_models = ['Assignment', 'Attempt', 'Game', 'Merit::Action']
 
   # Include specific models (exclude the others):
   # config.included_models = ['Assignment', 'Game', 'Question']
@@ -58,6 +60,63 @@ RailsAdmin.config do |config|
       fields_of_type :tag_list do
         partial 'tag_list_with_suggestions'
       end
+    end
+  end
+
+   config.actions do
+    # root actions
+    dashboard                     # mandatory
+    # collection actions 
+    index                         # mandatory
+    new
+    export
+    history_index
+    bulk_delete
+
+    collection :top_score do
+        register_instance_option :controller do
+          Proc.new do
+            @top_users = @abstract_model.model.top(5)
+            render @action.template_name
+          end
+        end
+      only User
+      link_icon 'icon-th-list'
+    end
+
+    collection :reset_all_points do
+        register_instance_option :controller do
+          Proc.new do
+            render @action.template_name
+          end
+        end
+      only User
+      link_icon 'icon-repeat'
+    end
+
+    collection :reset_all_points_action do
+        visible false
+        register_instance_option :controller do
+          Proc.new do
+            @abstract_model.model.update_all(:points => 0)
+            flash[:success] = "#{@model_config.label} successfully all points reseted."
+ 
+            redirect_to back_or_index          
+          end
+        end
+      only User
+      link_icon 'icon-repeat'
+    end
+    
+    # member actions
+    show
+    edit
+    delete
+    history_show
+    show_in_app
+
+    reset_point do
+      only User
     end
   end
 

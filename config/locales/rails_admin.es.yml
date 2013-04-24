@@ -93,6 +93,20 @@ es:
         title: "History for %{model_label} '%{object_label}'"
         menu: "History"
         breadcrumb: "History"
+      reset_point:
+        bulk_link: "Reset points for selected users"
+        title: "Reset points"
+        menu: "Reset points"
+        breadcrumb: "Reset points"
+      reset_all_points:
+        bulk_link: "Reset all users' points"
+        title: "Reset all points"
+        menu: "Reset all points"
+        breadcrumb: "Reset all points"
+      top_score:
+        title: "Top scores"
+        menu: "Top scores"
+        breadcrumb: "Top scores"
     form:
       cancel: "Cancel"
       basic_info: "Basic info"

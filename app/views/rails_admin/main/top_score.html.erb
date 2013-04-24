@@ -1,0 +1,33 @@
+<div >
+	<%= content_tag :h3, 'Top users score' %>
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th class="shrink model-name">User</th>
+				<th>Points</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @top_users.each do |user_top| %>
+				<tr class='<%= cycle("even", "odd") %> link'>
+					<td>
+						<span class="show">
+							<%= link_to user_top.email, show_path("user",user_top.id), :class => "pjax" %>
+						</span>
+					</td>
+
+					<td>
+						<div class="animate-width-to label label-<%= @abstract_model.model.top(1).first.id == user_top.id ? 'important' : 'info' %>" data-animate-length="2000" data-animate-width-to="<%= user_top['points'] < 5 ? 5 : (user_top['points'] * 99 / @abstract_model.model.top(1).first['points'] ) %>%" style="width: 5%;">
+							<%= user_top["points"] %>
+						</div>
+					</td>
+					</tr>
+			<% end %>
+		</tbody>
+
+	</table>
+	
+	
+
+</div>
